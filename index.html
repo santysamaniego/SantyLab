@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Santy.Lab | Agencia del Futuro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              space: {
+                black: '#050505',
+                dark: '#0a0a0f',
+                card: 'rgba(20, 20, 30, 0.6)',
+              },
+              neon: {
+                indigo: '#6366f1',
+                blue: '#3b82f6',
+                purple: '#a855f7',
+                cyan: '#06b6d4',
+                pink: '#ec4899',
+                green: '#10b981'
+              }
+            },
+            fontFamily: {
+              sans: ['Rajdhani', 'sans-serif'],
+              display: ['Orbitron', 'sans-serif'],
+            },
+            animation: {
+              'spin-slow': 'spin 60s linear infinite',
+              'shooting-star': 'shooting-star 2s linear forwards',
+              'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'shake': 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both',
+              'warp-expand': 'warp-expand 0.8s ease-in forwards',
+            },
+            keyframes: {
+              'shake': {
+                '10%, 90%': { transform: 'translate3d(-1px, 0, 0)' },
+                '20%, 80%': { transform: 'translate3d(2px, 0, 0)' },
+                '30%, 50%, 70%': { transform: 'translate3d(-4px, 0, 0)' },
+                '40%, 60%': { transform: 'translate3d(4px, 0, 0)' }
+              },
+              'warp-expand': {
+                  '0%': { transform: 'scale(0)', opacity: '0' },
+                  '50%': { opacity: '1' },
+                  '100%': { transform: 'scale(50)', opacity: '0' }
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #050505;
+        color: #e2e8f0;
+        overflow-x: hidden;
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .glass-high {
+        background: rgba(20, 20, 30, 0.7);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(99, 102, 241, 0.2);
+        box-shadow: 0 0 30px rgba(0,0,0,0.5);
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      
+      /* ThreeD Carousel Styles */
+      .carousel-scene {
+        perspective: 1200px; 
+        overflow: hidden;
+      }
+      .carousel-container {
+        transform-style: preserve-3d;
+      }
+      
+      /* Galaxy Disk */
+      .galaxy-disk {
+        background: radial-gradient(circle, rgba(99,102,241,0.9) 0%, rgba(168,85,247,0.5) 30%, rgba(5,5,5,0) 70%);
+        box-shadow: 0 0 60px 20px rgba(99,102,241,0.15);
+      }
+
+      /* Elastic Grid Styles */
+      .vertical-text {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        transform: rotate(180deg);
+      }
+      
+      .elastic-card {
+        transition: all 500ms cubic-bezier(0.25, 0.1, 0.25, 1);
+      }
+      
+      .project-card-image {
+        transition: all 500ms ease;
+      }
+      
+      .content-slide-up {
+        transition: transform 500ms cubic-bezier(0.25, 0.1, 0.25, 1), opacity 500ms ease;
+      }
+
+      .tech-grid-bg {
+        background-image: 
+          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+        -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+      }
+
+      /* Custom Scrollbar for HUD */
+      .hud-scrollbar::-webkit-scrollbar {
+        width: 4px;
+      }
+      .hud-scrollbar::-webkit-scrollbar-track {
+        background: rgba(0,0,0,0.3); 
+      }
+      .hud-scrollbar::-webkit-scrollbar-thumb {
+        background: #06b6d4; 
+        border-radius: 4px;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.0",
+    "@supabase/supabase-js": "https://aistudiocdn.com/@supabase/supabase-js@^2.86.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
